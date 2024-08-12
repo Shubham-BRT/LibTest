@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("maven-publish")
 }
 
 android {
@@ -45,4 +46,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+afterEvaluate {
+    publishing{
+        publications {
+            register<MavenPublication>("release"){
+                groupId = "com.github.shubham-BRT"
+                artifactId = "firstlib"
+                version = "1.0"
+                from(components["release"])
+            }
+        }
+    }
 }
