@@ -1,0 +1,28 @@
+package com.example.firstlibrary
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+
+class DataAdapter(val data:List<String>): RecyclerView.Adapter<DataAdapter.ViewHolder>() {
+    class ViewHolder(view: View):RecyclerView.ViewHolder(view) {
+        val textView = view.findViewById<TextView>(android.R.id.text1)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(android.R.layout.simple_list_item_1,parent,false)
+        return ViewHolder(view)
+    }
+
+    override fun getItemCount(): Int {
+        return data.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+       holder.textView.text = data[position]
+    }
+
+
+}
