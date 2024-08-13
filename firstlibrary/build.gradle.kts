@@ -52,7 +52,7 @@ afterEvaluate {
     publishing{
         publications {
             register<MavenPublication>("release"){
-                groupId = "com.github.shubham-BRT"
+                groupId = "com.github.Shubham-BRT"
                 artifactId = "firstlib"
                 version = "1.0"
                 from(components["release"])
